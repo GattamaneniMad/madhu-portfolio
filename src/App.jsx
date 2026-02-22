@@ -2,13 +2,41 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, FileDown, Filter } from "lucide-react";
 
+// IMPORTANT: This makes paths work for BOTH localhost and GitHub Pages
+const BASE = import.meta.env.BASE_URL;
+
 const LINKS = {
   githubProfile: "https://github.com/GattamaneniMad",
   linkedin: "https://linkedin.com/in/madhuchowdary999",
   email: "mailto:gattamanenimadhu.999@gmail.com",
   // Put your resume PDF in /public with this exact name
-  resume: "/Madhu_Chowdary_Gattamaneni_One_Page_Resume.pdf",
+  resume: BASE + "Madhu_Chowdary_Gattamaneni_One_Page_Resume.pdf",
 };
+
+const SKILLS = [
+  "Python",
+  "SQL",
+  "Pandas",
+  "NumPy",
+  "Scikit-Learn",
+  "TensorFlow",
+  "PyTorch",
+  "Computer Vision",
+  "NLP",
+  "EDA",
+  "Feature Engineering",
+  "Model Evaluation",
+  "Data Visualization",
+  "Matplotlib",
+  "Seaborn",
+  "Power BI",
+  "Tableau",
+  "Git/GitHub",
+  "Docker",
+  "Linux",
+  "AWS",
+  "Spark",
+];
 
 const PROJECTS = [
   {
@@ -36,8 +64,7 @@ const PROJECTS = [
     description:
       "Capstone group project: sandboxed multi-language compilation/execution platform (Python/Java/C/C++), multi-file support.",
     tech: ["Python", "CLI", "Sandboxing", "Git"],
-    // replace this with your actual Leaf Tutor repo link if different
-    repoUrl: "https://github.com/GattamaneniMad",
+    repoUrl: "https://github.com/GattamaneniMad/LeafTutor",
   },
   {
     title: "Fake News Detection",
@@ -46,7 +73,6 @@ const PROJECTS = [
     description:
       "NLP pipeline for detecting fake news with TF-IDF vectorization and classification metrics.",
     tech: ["Python", "NLP", "Scikit-Learn"],
-    // replace if you have a specific repo
     repoUrl: "https://github.com/GattamaneniMad",
   },
 ];
@@ -65,6 +91,7 @@ function Chip({ children }) {
         fontSize: 12,
         color: "#374151",
         background: "#fff",
+        whiteSpace: "nowrap",
       }}
     >
       {children}
@@ -79,7 +106,7 @@ function Card({ children }) {
         border: "1px solid #f0f0f0",
         borderRadius: 20,
         background: "#fff",
-        boxShadow: "0 1px 8px rgba(0,0,0,0.04)",
+        boxShadow: "0 1px 10px rgba(0,0,0,0.04)",
       }}
     >
       {children}
@@ -90,8 +117,8 @@ function Card({ children }) {
 function SectionTitle({ children }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-      <h2 style={{ fontSize: 22, fontWeight: 700, margin: 0 }}>{children}</h2>
-      <div style={{ height: 1, flex: 1, background: "#f1f5f9" }} />
+      <h2 style={{ fontSize: 22, fontWeight: 800, margin: 0 }}>{children}</h2>
+      <div style={{ height: 1, flex: 1, background: "#e5e7eb" }} />
     </div>
   );
 }
@@ -118,15 +145,46 @@ function Btn({ href, children, variant = "solid" }) {
         padding: "10px 14px",
         borderRadius: 14,
         fontSize: 14,
-        fontWeight: 600,
+        fontWeight: 700,
         display: "inline-flex",
         alignItems: "center",
+        justifyContent: "center",
         gap: 8,
         ...(variant === "solid" ? solid : outline),
       }}
     >
       {children}
     </a>
+  );
+}
+
+function BigProfilePhoto() {
+  return (
+    <div
+      style={{
+        width: 220,
+        height: 220,
+        borderRadius: "50%",
+        overflow: "hidden",
+        border: "4px solid #111827",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+        background: "#fff",
+        marginLeft: "auto",
+      }}
+    >
+      <img
+        src={BASE + "profile.jpg"}
+        alt="Madhu Chowdary Gattamaneni"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+        onError={(e) => {
+          e.currentTarget.style.display = "none";
+        }}
+      />
+    </div>
   );
 }
 
@@ -139,21 +197,21 @@ export default function App() {
   }, [active]);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#fff", color: "#111827" }}>
+    <div style={{ minHeight: "100vh", background: "#f8fafc", color: "#111827" }}>
       {/* Top Bar */}
       <div
         style={{
           position: "sticky",
           top: 0,
           zIndex: 10,
-          background: "rgba(255,255,255,0.9)",
+          background: "rgba(248,250,252,0.9)",
           backdropFilter: "blur(10px)",
-          borderBottom: "1px solid #f1f5f9",
+          borderBottom: "1px solid #e5e7eb",
         }}
       >
         <div
           style={{
-            maxWidth: 980,
+            maxWidth: 1200,
             margin: "0 auto",
             padding: "12px 18px",
             display: "flex",
@@ -162,7 +220,7 @@ export default function App() {
             gap: 10,
           }}
         >
-          <div style={{ fontWeight: 700, fontSize: 14 }}>Madhu Gattamaneni</div>
+          <div style={{ fontWeight: 800, fontSize: 14 }}>Madhu Gattamaneni</div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
             <Btn href={LINKS.resume} variant="outline">
               <FileDown size={16} /> Resume
@@ -177,51 +235,58 @@ export default function App() {
         </div>
       </div>
 
-      <main style={{ maxWidth: 980, margin: "0 auto", padding: "28px 18px" }}>
+      {/* MAIN: make it centered and remove huge blank area */}
+      <main
+        style={{
+          maxWidth: 1200,
+          width: "100%",
+          margin: "0 auto",
+          padding: "28px 24px",
+        }}
+      >
         {/* Hero */}
         <motion.section
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
           style={{
-            border: "1px solid #f1f5f9",
+            border: "1px solid #e5e7eb",
             borderRadius: 26,
             padding: 26,
-            boxShadow: "0 1px 10px rgba(0,0,0,0.04)",
+            background: "#fff",
+            boxShadow: "0 1px 12px rgba(0,0,0,0.05)",
           }}
         >
           <div
             style={{
-              display: "flex",
-              gap: 22,
-              flexWrap: "wrap",
-              justifyContent: "space-between",
+              display: "grid",
+              gridTemplateColumns: "1fr 260px",
+              gap: 24,
               alignItems: "center",
             }}
           >
+            {/* Left */}
             <div style={{ minWidth: 260 }}>
-              <h1 style={{ fontSize: 40, margin: 0, letterSpacing: -0.5 }}>
+              <h1 style={{ fontSize: 42, margin: 0, letterSpacing: -0.5 }}>
                 Madhu Chowdary Gattamaneni
               </h1>
               <p style={{ margin: "10px 0 0", color: "#4b5563", fontSize: 18 }}>
-                MS Data Science | Machine Learning & AI | Medical Image
-                Classification | AWS Certification (In Progress)
+                MS Data Science | Machine Learning & AI | Medical Image Classification | AWS
+                Certification (In Progress)
               </p>
 
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14 }}>
-                <Chip>Python</Chip>
-                <Chip>SQL</Chip>
-                <Chip>TensorFlow</Chip>
-                <Chip>Computer Vision</Chip>
-                <Chip>NLP</Chip>
-                <Chip>AWS</Chip>
+              {/* Skills */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
+                {SKILLS.map((skill) => (
+                  <Chip key={skill}>{skill}</Chip>
+                ))}
               </div>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <Btn href="#projects">
-                View Projects
-              </Btn>
+            {/* Right */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <BigProfilePhoto />
+              <Btn href="#projects">View Projects</Btn>
               <Btn href={LINKS.resume} variant="outline">
                 <FileDown size={16} /> Download Resume
               </Btn>
@@ -230,6 +295,17 @@ export default function App() {
               </Btn>
             </div>
           </div>
+
+          {/* Mobile fix */}
+          <style>
+            {`
+              @media (max-width: 900px) {
+                main > section:first-of-type > div {
+                  grid-template-columns: 1fr !important;
+                }
+              }
+            `}
+          </style>
         </motion.section>
 
         {/* Featured */}
@@ -246,18 +322,17 @@ export default function App() {
             <Card>
               <div style={{ padding: 18 }}>
                 <div style={{ color: "#6b7280", fontSize: 13 }}>Research</div>
-                <div style={{ fontWeight: 700, fontSize: 18, marginTop: 6 }}>
-                  Medical AI
-                </div>
+                <div style={{ fontWeight: 800, fontSize: 18, marginTop: 6 }}>Medical AI</div>
                 <p style={{ color: "#4b5563", fontSize: 14, marginTop: 8 }}>
                   Brain tumor & skin lesion classification using transfer learning and ensemble DCNNs.
                 </p>
               </div>
             </Card>
+
             <Card>
               <div style={{ padding: 18 }}>
                 <div style={{ color: "#6b7280", fontSize: 13 }}>Engineering</div>
-                <div style={{ fontWeight: 700, fontSize: 18, marginTop: 6 }}>
+                <div style={{ fontWeight: 800, fontSize: 18, marginTop: 6 }}>
                   Secure Code Execution
                 </div>
                 <p style={{ color: "#4b5563", fontSize: 14, marginTop: 8 }}>
@@ -265,10 +340,11 @@ export default function App() {
                 </p>
               </div>
             </Card>
+
             <Card>
               <div style={{ padding: 18 }}>
                 <div style={{ color: "#6b7280", fontSize: 13 }}>Career</div>
-                <div style={{ fontWeight: 700, fontSize: 18, marginTop: 6 }}>
+                <div style={{ fontWeight: 800, fontSize: 18, marginTop: 6 }}>
                   Open to Internships
                 </div>
                 <p style={{ color: "#4b5563", fontSize: 14, marginTop: 8 }}>
@@ -292,7 +368,15 @@ export default function App() {
           >
             <SectionTitle>Projects</SectionTitle>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
-              <div style={{ display: "inline-flex", gap: 6, alignItems: "center", color: "#6b7280", fontSize: 13 }}>
+              <div
+                style={{
+                  display: "inline-flex",
+                  gap: 6,
+                  alignItems: "center",
+                  color: "#6b7280",
+                  fontSize: 13,
+                }}
+              >
                 <Filter size={16} /> Filter:
               </div>
               {FILTERS.map((f) => (
@@ -306,7 +390,7 @@ export default function App() {
                     background: active === f ? "#111827" : "#fff",
                     color: active === f ? "#fff" : "#111827",
                     cursor: "pointer",
-                    fontWeight: 700,
+                    fontWeight: 800,
                     fontSize: 13,
                   }}
                 >
@@ -320,9 +404,23 @@ export default function App() {
             {filtered.map((p) => (
               <Card key={p.title}>
                 <div style={{ padding: 18 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
-                    <div style={{ minWidth: 260 }}>
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: 12,
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <div style={{ minWidth: 260, flex: 1 }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: 8,
+                          alignItems: "center",
+                        }}
+                      >
                         <h3 style={{ margin: 0, fontSize: 18 }}>{p.title}</h3>
                         <Chip>{p.category}</Chip>
                         <Chip>{p.highlight}</Chip>
@@ -347,7 +445,7 @@ export default function App() {
           </div>
 
           <p style={{ marginTop: 10, color: "#6b7280", fontSize: 13 }}>
-            Next: update each project’s <b>repoUrl</b> to your exact repository links.
+            Tip: make sure each project has the exact <b>repoUrl</b> to the correct GitHub repository.
           </p>
         </section>
 
@@ -355,10 +453,11 @@ export default function App() {
         <section
           style={{
             marginTop: 40,
-            border: "1px solid #f1f5f9",
+            border: "1px solid #e5e7eb",
             borderRadius: 26,
             padding: 24,
             textAlign: "center",
+            background: "#fff",
           }}
         >
           <h2 style={{ margin: 0, fontSize: 22 }}>Contact</h2>

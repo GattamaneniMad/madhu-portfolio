@@ -18,102 +18,114 @@ import {
 
 const BASE = import.meta.env.BASE_URL;
 
-// ====== EDIT THESE ======
+// ====== PROFILE ======
 const PROFILE = {
   name: "Madhu Chowdary Gattamaneni",
   tagline:
-    "MS Data Science | Machine Learning & AI | Medical Image Classification | AWS Certification (In Progress)",
+    "Data Analyst | Business Intelligence | Supply Chain Analytics | Power BI | SQL | Python",
   location: "Houston, TX",
   email: "gattamanenimadhu.999@gmail.com",
   phone: "+1-346-605-9292",
   photo: BASE + "profile.jpg",
-  resume: BASE + "Madhu_Chowdary_Gattamaneni_One_Page_Resume.pdf",
+  resume: BASE + "Resume.Madhu.pdf",
   githubProfile: "https://github.com/GattamaneniMad",
   linkedin: "https://linkedin.com/in/madhuchowdary999",
-  now: "Leaf Tutor — sandboxed multi-language runner (capstone)",
+  now: "Building BI dashboards and analytics solutions across supply chain, retail, customer, and financial data",
 };
 
+// ====== SKILLS ======
 const SKILLS = [
-  "Python",
+  "Power BI",
   "SQL",
+  "Python",
+  "Excel",
+  "Tableau",
+  "DAX",
+  "Dashboard Design",
+  "KPI Reporting",
+  "Data Visualization",
+  "EDA",
+  "Forecasting",
+  "A/B Testing",
+  "Supply Chain Analytics",
+  "Business Intelligence",
+  "ETL",
+  "Data Warehousing",
   "Pandas",
   "NumPy",
-  "Scikit-Learn",
-  "TensorFlow",
-  "PyTorch",
-  "Computer Vision",
-  "NLP",
-  "EDA",
-  "Feature Engineering",
-  "Model Evaluation",
-  "Data Visualization",
-  "Matplotlib",
-  "Seaborn",
-  "Power BI",
-  "Tableau",
-  "Git/GitHub",
-  "Docker",
-  "Linux",
-  "AWS",
-  "Spark",
+  "PostgreSQL",
+  "Git",
 ];
 
+// ====== PROJECTS ======
 const PROJECTS = [
   {
-    title: "Brain Tumor Classification",
-    category: "CV",
-    highlight: "99.79% accuracy (ResNet50V3)",
+    title: "Customer Insights Dashboard",
+    category: "Analytics",
+    highlight: "Customer segmentation & retention insights",
     description:
-      "MRI-based brain tumor classification using transfer learning; compared multiple CNN architectures.",
+      "Delivered a customer analytics solution using Power BI and Python to identify segmentation patterns, purchase behavior trends, repeat customers, and regional distribution insights supporting retention strategy.",
+    tech: ["Power BI", "Python", "Customer Analytics", "Segmentation"],
+    repoUrl: "https://github.com/GattamaneniMad",
+  },
+  {
+    title: "Financial Market Analysis",
+    category: "Analytics",
+    highlight: "Python & SQL time-series analysis",
+    description:
+      "Analyzed financial market data using SQL and Python to evaluate stock price movement, trading volume trends, monthly return patterns, and high-performing equities across market sectors.",
+    tech: ["Python", "SQL", "Pandas", "Matplotlib"],
+    repoUrl: "https://github.com/GattamaneniMad",
+  },
+  {
+    title: "Supply Chain Analytics Dashboard",
+    category: "Analytics",
+    highlight: "Inventory, supplier & logistics KPIs",
+    description:
+      "Built an end-to-end Power BI supply chain dashboard with DAX modeling to track inventory turnover, supplier delivery rates, logistics KPIs, and demand variability for operational decision-making.",
+    tech: ["Power BI", "DAX", "Excel", "Supply Chain Analytics"],
+    repoUrl: "https://github.com/GattamaneniMad",
+  },
+  {
+    title: "Retail Sales Analytics Dashboard",
+    category: "Analytics",
+    highlight: "Sales, region & product performance",
+    description:
+      "Developed an interactive Power BI retail analytics dashboard analyzing sales trends, regional performance, product categories, and profitability to support inventory planning and business reporting.",
+    tech: ["Power BI", "Excel", "Data Visualization", "Business Intelligence"],
+    repoUrl:
+      "https://github.com/GattamaneniMad/Retail-Sales-Powerbi-DashBoard",
+  },
+  {
+    title: "Brain Tumor Detection & Classification",
+    category: "AI",
+    highlight: "99.79% accuracy",
+    description:
+      "Developed a CNN-based model using ResNet50V3 for MRI brain tumor detection and classification, achieving high accuracy through transfer learning, data segmentation, and preprocessing.",
     tech: ["Python", "TensorFlow", "CNN", "Transfer Learning"],
     repoUrl: "https://github.com/GattamaneniMad/Brain-tumor",
   },
   {
     title: "Skin Lesion Classification",
-    category: "CV",
-    highlight: "91.48% accuracy (Ensemble DCNNs)",
+    category: "AI",
+    highlight: "91.48% accuracy",
     description:
-      "Skin lesion classification using HAM10000 dataset with ensemble learning and fine-tuned pre-trained models.",
-    tech: ["Python", "TensorFlow", "DCNN", "Ensemble"],
+      "Built an ensemble deep learning model using VGG16, InceptionResNetV2, InceptionV3, and DenseNet201 for HAM10000 skin lesion classification using transfer learning and fine-tuning.",
+    tech: ["Python", "TensorFlow", "DCNN", "Ensemble Learning"],
     repoUrl: "https://github.com/GattamaneniMad/skin-lesion",
   },
   {
-    title: "Retail Sales Analytics Dashboard",
-    category: "Analytics",
-    highlight: "3-page Power BI dashboard",
-    description:
-      "Built an interactive Power BI dashboard analyzing retail sales performance, product profitability, customer segmentation, and shipping operations using the Superstore dataset.",
-    tech: [
-      "Power BI",
-      "Excel",
-      "SQL",
-      "Data Visualization",
-      "Business Intelligence",
-    ],
-    repoUrl:
-      "https://github.com/GattamaneniMad/Retail-Sales-Powerbi-DashBoard",
-  },
-  {
-    title: "Leaf Tutor",
+    title: "Leaf Tutor AI Assistant",
     category: "Systems",
-    highlight: "Secure multi-language code runner",
+    highlight: "Multi-language compiler runner",
     description:
-      "Capstone group project: sandboxed multi-language compilation/execution platform (Python/Java/C/C++), multi-file support.",
-    tech: ["Python", "CLI", "Sandboxing", "Git"],
+      "Built a multi-language execution system supporting Python, Java, C, and C++ with structured output logging for debugging and AI-based code analysis.",
+    tech: ["Python", "Java", "C/C++", "Automation"],
     repoUrl: "https://github.com/GattamaneniMad/LeafTutor",
-  },
-  {
-    title: "Fake News Detection",
-    category: "NLP",
-    highlight: "TF-IDF + Logistic Regression",
-    description:
-      "NLP pipeline for detecting fake news with TF-IDF vectorization and classification metrics.",
-    tech: ["Python", "NLP", "Scikit-Learn"],
-    repoUrl: "https://github.com/GattamaneniMad",
   },
 ];
 
-const FILTERS = ["All", "CV", "NLP", "Systems", "Analytics"];
+const FILTERS = ["All", "Analytics", "AI", "Systems"];
 
 // ====== UTIL ======
 function clampContainerStyle() {
@@ -134,9 +146,7 @@ function useScrollSpy(ids = []) {
   const observer = useRef(null);
 
   useEffect(() => {
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    const elements = ids.map((id) => document.getElementById(id)).filter(Boolean);
     if (!elements.length) return;
 
     observer.current?.disconnect();
@@ -144,10 +154,18 @@ function useScrollSpy(ids = []) {
       (entries) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+          .sort(
+            (a, b) =>
+              (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
+          )[0];
+
         if (visible?.target?.id) setActive(visible.target.id);
       },
-      { root: null, rootMargin: "-30% 0px -60% 0px", threshold: [0.1, 0.2, 0.35] }
+      {
+        root: null,
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: [0.1, 0.2, 0.35],
+      }
     );
 
     elements.forEach((el) => observer.current.observe(el));
@@ -212,7 +230,14 @@ function Card({ children, dark, glow = false }) {
 
 function SectionTitle({ children, dark }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        marginTop: 6,
+      }}
+    >
       <h2
         style={{
           fontSize: 22,
@@ -284,6 +309,7 @@ function Btn({ href, children, variant = "solid", dark, onClick }) {
   }
 
   const isExternal = href.startsWith("http");
+
   return (
     <a
       href={href}
@@ -313,7 +339,12 @@ function BigProfilePhoto({ src }) {
       <img
         src={src}
         alt={PROFILE.name}
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center top",
+        }}
         onError={(e) => {
           e.currentTarget.style.display = "none";
         }}
@@ -350,7 +381,14 @@ function CopyRow({ label, value, icon, dark, href }) {
         background: dark ? "rgba(17,24,39,0.35)" : "#fff",
       }}
     >
-      <div style={{ display: "flex", gap: 10, alignItems: "center", minWidth: 0 }}>
+      <div
+        style={{
+          display: "flex",
+          gap: 10,
+          alignItems: "center",
+          minWidth: 0,
+        }}
+      >
         <div
           style={{
             width: 34,
@@ -441,6 +479,7 @@ function CopyRow({ label, value, icon, dark, href }) {
 
 function Reveal({ children, delay = 0 }) {
   const reduce = useReducedMotion();
+
   return (
     <motion.div
       initial={reduce ? { opacity: 1 } : { opacity: 0, y: 14 }}
@@ -453,6 +492,7 @@ function Reveal({ children, delay = 0 }) {
   );
 }
 
+// ====== MAIN ======
 export default function App() {
   const [active, setActive] = useState("All");
   const [dark, setDark] = useState(true);
@@ -469,13 +509,17 @@ export default function App() {
     const handler = (e) => {
       const a = e.target.closest?.("a[href^='#']");
       if (!a) return;
+
       const id = a.getAttribute("href")?.slice(1);
       if (!id) return;
+
       const el = document.getElementById(id);
       if (!el) return;
+
       e.preventDefault();
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     };
+
     document.addEventListener("click", handler);
     return () => document.removeEventListener("click", handler);
   }, []);
@@ -529,14 +573,18 @@ export default function App() {
             }}
           >
             <Btn onClick={() => setDark((v) => !v)} variant="outline" dark={dark}>
-              {dark ? <Sun size={16} /> : <Moon size={16} />} {dark ? "Light" : "Dark"}
+              {dark ? <Sun size={16} /> : <Moon size={16} />}{" "}
+              {dark ? "Light" : "Dark"}
             </Btn>
+
             <Btn href={PROFILE.resume} variant="outline" dark={dark}>
               <FileDown size={16} /> Resume
             </Btn>
+
             <Btn href={PROFILE.githubProfile} variant="outline" dark={dark}>
               <Github size={16} /> GitHub
             </Btn>
+
             <Btn href={PROFILE.linkedin} variant="outline" dark={dark}>
               <Linkedin size={16} /> LinkedIn
             </Btn>
@@ -557,9 +605,11 @@ export default function App() {
         <Btn href={PROFILE.resume} variant="solid" dark={dark}>
           <FileDown size={16} /> Resume
         </Btn>
+
         <Btn href={`mailto:${PROFILE.email}`} variant="outline" dark={dark}>
           <Mail size={16} /> Email
         </Btn>
+
         <Btn href={PROFILE.linkedin} variant="outline" dark={dark}>
           <Linkedin size={16} /> LinkedIn
         </Btn>
@@ -657,7 +707,13 @@ export default function App() {
               }}
             >
               <div style={{ minWidth: 260 }}>
-                <div style={{ display: "inline-flex", gap: 8, alignItems: "center" }}>
+                <div
+                  style={{
+                    display: "inline-flex",
+                    gap: 8,
+                    alignItems: "center",
+                  }}
+                >
                   <Chip dark={dark}>Now: {PROFILE.now}</Chip>
                 </div>
 
@@ -762,10 +818,25 @@ export default function App() {
                       color: dark ? "rgba(255,255,255,0.86)" : "#111827",
                     }}
                   >
-                    I’m a Data Science graduate student from University Of Houston-Clear Lake
-                    focused on building practical ML systems — from medical image
-                    classification (CNNs, transfer learning, ensembles) to end-to-end
-                    pipelines with evaluation and deployment-ready practices.
+                    I’m a Data Science graduate student at the University of
+                    Houston–Clear Lake with hands-on experience delivering
+                    analytics solutions using Power BI, SQL, Python, and Excel.
+                    I focus on business intelligence, supply chain analytics,
+                    retail analytics, customer insights, and financial data
+                    analysis.
+                  </p>
+
+                  <p
+                    style={{
+                      marginTop: 12,
+                      lineHeight: 1.65,
+                      color: dark ? "rgba(255,255,255,0.78)" : "#374151",
+                    }}
+                  >
+                    My work focuses on transforming complex datasets into
+                    dashboards, KPI reports, and actionable insights that support
+                    operational efficiency, forecasting, and strategic
+                    decision-making.
                   </p>
                 </div>
               </Card>
@@ -775,7 +846,9 @@ export default function App() {
               <Reveal delay={0.08}>
                 <Card dark={dark}>
                   <div style={{ padding: 18 }}>
-                    <div style={{ fontWeight: 950, fontSize: 16 }}>Open to roles</div>
+                    <div style={{ fontWeight: 950, fontSize: 16 }}>
+                      Open to roles
+                    </div>
                     <div
                       style={{
                         marginTop: 6,
@@ -783,7 +856,8 @@ export default function App() {
                         fontSize: 13,
                       }}
                     >
-                      Data Science • ML Engineer • AI Engineer • Analyst
+                      Data Analyst • Business Analyst • BI Analyst • Supply Chain
+                      Analyst • Operations Analyst
                     </div>
                   </div>
                 </Card>
@@ -792,7 +866,9 @@ export default function App() {
               <Reveal delay={0.12}>
                 <Card dark={dark}>
                   <div style={{ padding: 18 }}>
-                    <div style={{ fontWeight: 950, fontSize: 16 }}>Strengths</div>
+                    <div style={{ fontWeight: 950, fontSize: 16 }}>
+                      Business domains
+                    </div>
                     <div
                       style={{
                         marginTop: 6,
@@ -800,7 +876,8 @@ export default function App() {
                         fontSize: 13,
                       }}
                     >
-                      Modeling • Experimentation • Metrics • Clean code
+                      Supply Chain Analytics • Retail Analytics • Customer
+                      Analytics • Financial Analytics • Business Intelligence
                     </div>
                   </div>
                 </Card>
@@ -916,7 +993,13 @@ export default function App() {
                             alignItems: "center",
                           }}
                         >
-                          <h3 style={{ margin: 0, fontSize: 18, fontWeight: 980 }}>
+                          <h3
+                            style={{
+                              margin: 0,
+                              fontSize: 18,
+                              fontWeight: 980,
+                            }}
+                          >
                             {p.title}
                           </h3>
                           <Chip dark={dark}>{p.category}</Chip>
@@ -927,6 +1010,7 @@ export default function App() {
                           style={{
                             margin: "10px 0 0",
                             color: dark ? "rgba(255,255,255,0.75)" : "#4b5563",
+                            lineHeight: 1.55,
                           }}
                         >
                           {p.description}
@@ -977,7 +1061,10 @@ export default function App() {
             <Reveal delay={0.05}>
               <Card dark={dark} glow>
                 <div style={{ padding: 18 }}>
-                  <div style={{ fontWeight: 980, fontSize: 16 }}>Contact details</div>
+                  <div style={{ fontWeight: 980, fontSize: 16 }}>
+                    Contact details
+                  </div>
+
                   <div style={{ marginTop: 12, display: "grid", gap: 10 }}>
                     <CopyRow
                       label="Email"
@@ -986,23 +1073,22 @@ export default function App() {
                       dark={dark}
                       href={`mailto:${PROFILE.email}`}
                     />
+
                     <CopyRow
                       label="Phone"
                       value={PROFILE.phone}
                       icon={<Phone size={16} />}
                       dark={dark}
-                      href={
-                        PROFILE.phone.includes("XXX")
-                          ? undefined
-                          : `tel:${PROFILE.phone}`
-                      }
+                      href={`tel:${PROFILE.phone}`}
                     />
+
                     <CopyRow
                       label="Location"
                       value={PROFILE.location}
                       icon={<MapPin size={16} />}
                       dark={dark}
                     />
+
                     <CopyRow
                       label="LinkedIn"
                       value="linkedin.com/in/madhuchowdary999"
@@ -1010,6 +1096,7 @@ export default function App() {
                       dark={dark}
                       href={PROFILE.linkedin}
                     />
+
                     <CopyRow
                       label="GitHub"
                       value="github.com/GattamaneniMad"
@@ -1025,7 +1112,10 @@ export default function App() {
             <Reveal delay={0.09}>
               <Card dark={dark}>
                 <div style={{ padding: 18 }}>
-                  <div style={{ fontWeight: 980, fontSize: 16 }}>Quick message</div>
+                  <div style={{ fontWeight: 980, fontSize: 16 }}>
+                    Quick message
+                  </div>
+
                   <p
                     style={{
                       marginTop: 10,
@@ -1033,8 +1123,9 @@ export default function App() {
                       lineHeight: 1.6,
                     }}
                   >
-                    For internships, collaborations, or research discussions — email me
-                    anytime. I usually respond within 24–48 hours.
+                    For analyst roles, internships, collaborations, or project
+                    discussions — feel free to reach out. I usually respond within
+                    24–48 hours.
                   </p>
 
                   <div
@@ -1046,7 +1137,7 @@ export default function App() {
                     }}
                   >
                     <Btn
-                      href={`mailto:${PROFILE.email}?subject=Internship%20Opportunity&body=Hi%20Madhu%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20connect.%0A%0AThanks%2C`}
+                      href={`mailto:${PROFILE.email}?subject=Data%20Analyst%20Opportunity&body=Hi%20Madhu%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20connect.%0A%0AThanks%2C`}
                       variant="solid"
                       dark={dark}
                     >
@@ -1074,6 +1165,7 @@ export default function App() {
                 white-space:nowrap;
                 backdrop-filter: blur(10px);
               }
+
               @media (max-width: 980px) {
                 #contact > div { grid-template-columns: 1fr !important; }
               }
@@ -1100,6 +1192,7 @@ export default function App() {
             <div>
               © {new Date().getFullYear()} {PROFILE.name}
             </div>
+
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               <a
                 href="#top"
